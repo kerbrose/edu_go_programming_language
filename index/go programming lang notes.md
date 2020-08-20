@@ -47,3 +47,32 @@ import (
 var palette = []color.Color{color.White, color.Black}
 anim := gif.GIF{LoopCount: nframes}
 ```
+- p.18 intro to `goroutine` & `channel`. you can consider a goroutine as thread
+
+- p.19 intro to **fmt.Fprintf**, please note the difference between `Fprintf` vs `Sprintf` & their usage from [gopl.io/ch1/server1], [gopl.io/ch1/fetchall]
+
+- p.19 note the difference between the argument of the `handler` & the usage of the *
+```go
+// because the first argument will always be 1 instance it doens'nt
+// need *, however there would be multiple requests which needs *
+func handler(w http.ResponseWriter, r *http.Request) {fmt.Fprintf(w, "URL.Path = %q\n", r.URL.Path)}
+```
+
+- p.22 local variable declaration to precede the if condition
+```go
+if err := r.ParseForm(); err != nil {
+    log.Print(err)
+}
+// is the same as, but the past reduces the scope of the variable err
+err := r.ParseForm()
+if err != nil {
+    log.Print(err)
+}
+```
+
+- p.24 there is no pointer arithmetic
+
+
+### Chapter 01: PROGRAM STRUCTURE
+
+
