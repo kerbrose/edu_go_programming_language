@@ -76,3 +76,30 @@ if err != nil {
 ### Chapter 01: PROGRAM STRUCTURE
 
 
+- p.32 please note that `&x` return the address of x and `*p` returns the value of the pointer
+
+- p.40 define a method for a `named type`. this like the `str()` in Python which calls `__str__()` of the object.
+```go
+type Celsius float64
+type Fahrenheit float64
+const (
+    AbsoluteZeroC Celsius = -273.15
+    FreezingC Celsius=0
+    BoilingC   Celsius=100
+)
+func CToF(c Celsius) Fahrenheit { return Fahrenheit(c*9/5 + 32) 
+func FToC(f Fahrenheit) Celsius { return Celsius((f - 32) * 5 / 9) }
+
+// the following method would be related to type celsius
+func (c Celsius) String() string { return fmt.Sprintf("%g°C", c) }
+
+// so we could run the following
+c := FToC(212.0)
+fmt.Println(c.String()) // "100°C"
+fmt.Printf("%v\n", c)   // "100°C"; no need to call String explicitly
+fmt.Printf("%s\n", c)   // "100°C"
+fmt.Println(c)          // "100°C"
+fmt.Printf("%g\n", c)   // "100"; does not call String, %g floating point number
+fmt.Println(float64(c)) // "100"; does not call String
+```
+
