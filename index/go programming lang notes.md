@@ -73,12 +73,12 @@ if err != nil {
 - p.24 there is no pointer arithmetic
 
 
-### Chapter 01: PROGRAM STRUCTURE
+### Chapter 02: PROGRAM STRUCTURE
 
 
 - p.32 please note that `&x` return the address of x and `*p` returns the value of the pointer
 
-- p.40 define a method for a `named type`. this like the `str()` in Python which calls `__str__()` of the object.
+- p.40 define a **method** for a `named type`. this like the `str()` in Python which calls `__str__()` of the object.
 ```go
 type Celsius float64
 type Fahrenheit float64
